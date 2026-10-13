@@ -1372,3 +1372,22 @@ details summary {
   border-color: rgba(255, 255, 255, 0.3) !important;
   color: #fff !important;
 }
+
+/* Habit Lab Sister Project Card */
+.habit-lab-card {
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.05), #0b111a 75%);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: 20px;
+  padding: 20px;
+  transition: all 0.25s ease;
+}
+
+.habit-lab-card:hover {
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 10px 32px rgba(245, 158, 11, 0.09);
+}
+
+.habit-lab-link:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}

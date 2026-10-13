@@ -606,6 +606,56 @@ export default function Home() {
           <Personal uid={user.uid} />
         </div>
       )}
+
+      {/* Sister Project Shoutout: Habit Lab */}
+      <footer className="card habit-lab-card" style={{ marginTop: 28 }}>
+        <div className="row">
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <span style={{ fontSize: "1.35rem" }}>🧪</span>
+            <h3 style={{ margin: 0, color: "#fff" }}>Habit Lab</h3>
+            <span className="pill warn" style={{ fontSize: "0.75rem" }}>
+              ✦ pwoli saanam
+            </span>
+          </div>
+          <span className="pill mu" style={{ fontSize: "0.75rem" }}>
+            Sister Project
+          </span>
+        </div>
+
+        <p style={{ fontStyle: "italic", color: "var(--o)", margin: "8px 0 6px", fontSize: "0.92rem", fontWeight: 600 }}>
+          &ldquo;Built for lazy humans who procrastinate beautifully. ✦ pwoli saanam&rdquo;
+        </p>
+
+        <p className="mu" style={{ fontSize: "0.88rem", margin: "6px 0 14px", lineHeight: 1.55 }}>
+          Habit Lab is a quirky, brutalist-inspired personal learning cockpit and habit tracker. It is designed to make consistency feel less like a chore and more like a game, blending productivity with a healthy dose of humor and local Malayalam pop-culture flavor.
+        </p>
+
+        <div className="row">
+          <a
+            href="https://tryhabitlab.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="habit-lab-link"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "linear-gradient(135deg, #f59e0b, #d97706)",
+              color: "#03140d",
+              padding: "9px 18px",
+              borderRadius: "12px",
+              fontWeight: 700,
+              fontSize: "0.88rem",
+              textDecoration: "none",
+              boxShadow: "0 4px 14px rgba(245, 158, 11, 0.35)",
+            }}
+          >
+            🔥 Live Demo (Check it out before you get lazy) ↗
+          </a>
+          <small className="mu">tryhabitlab.vercel.app</small>
+        </div>
+      </footer>
     </>
   );
 }
+
