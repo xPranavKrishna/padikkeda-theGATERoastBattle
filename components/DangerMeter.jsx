@@ -3,7 +3,7 @@ import { level } from "@/lib/score";
 import { playBuzzer } from "@/lib/sound";
 
 export default function DangerMeter({ me }) {
-  const [, name, emoji, tone, msg] = level(me.procrast);
+  const [, name, emoji, tone, msg] = level(me.procrast, me.daysAhead);
   const marksAtRisk = Math.min(65, me.backlog.length * 1.2 + me.missed * 1.8).toFixed(1);
 
   return (
@@ -15,6 +15,7 @@ export default function DangerMeter({ me }) {
         </div>
         <span className={"pill " + tone + (me.procrast >= 45 ? " pulse" : "")}>
           {emoji} {name}
+          {me.daysAhead > 0 && ` (+${me.daysAhead}d Buffer)`}
         </span>
       </div>
 

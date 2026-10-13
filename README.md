@@ -24,6 +24,7 @@ A battle-driven study tracker where you and your friends compete head-to-head:
 - **Savage Roast Engine:** Roast lines triggered by individual slacking, team slacking, topper complacency, and direct point gaps.
 - **Adiyanthira Thallu 💊:** Emergency reality check pills with browser text-to-speech (*"🔊 Kelkkeda!"*).
 - **Day-by-Day Timetable:** 132-day syllabus (Oct 13, 2026 to Feb 21, 2027) covering all CSE subjects, General Aptitude, and PYQ mock cycles.
+- **Fast-Track Overdrive & Time Buffer Bank:** Finish tomorrow's topic today to bank buffer days (+24h cushion), expand your revision window, and finish the syllabus earlier!
 - **Subject Marks Weightage on Syllabus:** See estimated marks (~15 Marks for Maths, ~8-10 Marks for CN/OS) and subject leaders.
 
 ---
@@ -40,6 +41,8 @@ A battle-driven study tracker where you and your friends compete head-to-head:
 | Recall + error log | **+5** |
 | Each GATE PYQ you solve | **+2** |
 | Finish a skipped (catch-up) topic | **+6** 🔁 |
+| Finish an advance (fast-track) topic early | **+10** ⚡ |
+| Each buffer day banked ahead | **+5 bonus** 🛡️ |
 | Finish ALL 4 tasks in a day | **+10 bonus** 🎁 |
 | Each day in your streak | **+2** 🔥 |
 
@@ -51,7 +54,27 @@ A battle-driven study tracker where you and your friends compete head-to-head:
 | Each skipped topic still pending | **−2** ⏳ |
 
 Zero days are counted from the day you joined (or Oct 13, 2026, whichever is later) up to yesterday.  
-So today is still safe. Tomorrow morning, it is not. 😏
+**Time Buffer Protection:** If you have banked buffer days from fast-tracking topics ahead, your buffer shield absorbs missed days so you don't receive unfair zero-day penalties!
+
+---
+
+## ⚡ Fast-Track vs Catch-Up: Symmetrical Schedulers
+
+Padikkeda uses a symmetrical game engine for both lazy days and hyper-productive days:
+
+### 1. 🔁 The Procrastinator: Smart Catch-Up Box
+- When you miss a day, incomplete topics automatically pile up into the **Catch-Up Box** (oldest first).
+- Pending topics leak **−2 pts/day** and raise your **Procrastination Danger Index**.
+- You can clear individual overdue topics anytime for **+6 pts** each to reset your ICU risk!
+
+### 2. ⚡ The Speedrunner: Fast-Track Overdrive & Buffer Bank
+- When today's work is finished (or if you want to push ahead), you can **Unlock Tomorrow's Topic**.
+- **Time Expansion Logic:** If you complete tomorrow's topic today:
+  - You bank **+1 Buffer Day (+24 Hours of Time Cushion)**.
+  - Your effective study pace increases to **2.0x Velocity**.
+  - Your projected syllabus finish date moves **1 day earlier**.
+  - Your final Mock & Revision window expands from 36 days to **37+ days**.
+  - **Time Shield Safety Net:** If you take a rest tomorrow, your timetable, streak, and score are **100% protected** because tomorrow's topic was already completed in advance!
 
 ---
 
@@ -60,8 +83,9 @@ So today is still safe. Tomorrow morning, it is not. 😏
 Lazy people skip topics. The site knows. 👀
 
 - **Daily mission boxes:** Every day displays that day's exact topic from the timetable in 4 interactive cards: Learn (80 min), Solve (45 min), GA (20 min), Recall + error log (10 min).
-- **Skipped a topic?** It goes into the **Catch-up box**, oldest first, and is spread over the next days (1, 2 or 3 per day, depending on how big the backlog is). Finish one for **+6**.
-- **Danger meter (0 to 100):** Goes SAFE 😎 → WARNING 😬 → DANGER 🚨 → CRITICAL 💀 based on pending topics, how old they are, and zero days. Displays **Marks at Risk** and has an emergency wake-up buzzer.
+- **Fast-Track Card:** Appears right after your daily mission, showing banked cushion hours, speed velocity, and next upcoming topic.
+- **Catch-up box:** Displays rescheduled overdue topics with view toggles for today's quota or the entire backlog, with 1-click **Done +6** buttons.
+- **Danger meter (0 to 100):** Goes SPEEDRUNNER ⚡ (if ahead) → SAFE 😎 → WARNING 😬 → DANGER 🚨 → CRITICAL 💀. Displays **Marks at Risk** and has an emergency wake-up buzzer.
 - **Yesterday's report:** Shows yesterday's points, task checkboxes, verdict roast, plus **Yesterday's MVP** vs **Yesterday's Tharavu 🦆**.
 - **Coming up:** 3-day lookahead so nobody can say "I didn't know".
 

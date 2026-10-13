@@ -12,6 +12,7 @@ export default function Leaderboard() {
   const getBadges = (u, i) => {
     const b = [];
     if (i === 0) b.push({ label: "👑 Topper", cls: "pos" });
+    if (u.daysAhead > 0) b.push({ label: `⚡ +${u.daysAhead}d Buffer`, cls: "pos" });
     if (u.streak >= 3) b.push({ label: `🔥 ${u.streak}d`, cls: "warn" });
     if (u.today === 0) b.push({ label: "🦆 Duck (0 Today)", cls: "neg" });
     if (u.procrast >= 70) b.push({ label: "💀 ICU", cls: "neg" });
@@ -184,8 +185,11 @@ export default function Leaderboard() {
         <p className="pos" style={{ margin: "4px 0", fontSize: "0.88rem" }}>
           ✅ +10 Concept · +10 Questions · +5 GA · +5 Recall · +2 per GATE PYQ · +6 per Catch-up topic · +10 Full-Day Bonus · +2 per Streak day.
         </p>
+        <p style={{ margin: "4px 0", fontSize: "0.88rem", color: "var(--b)" }}>
+          ⚡ <b>Fast-Track Speedrun:</b> +10 per Advance Topic cleared · +5 per Buffer Day banked (absorbs zero-days & pulls syllabus finish earlier).
+        </p>
         <p className="neg" style={{ margin: "4px 0", fontSize: "0.88rem" }}>
-          💀 −15 per Zero-Day (joined date to yesterday) · ⏳ −2 per pending skipped topic.
+          💀 −15 per Zero-Day (joined date to yesterday, shielded by buffer days) · ⏳ −2 per pending skipped topic.
         </p>
       </div>
     </>

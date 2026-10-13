@@ -13,6 +13,7 @@ import DangerMeter from "@/components/DangerMeter";
 import YesterdayReport from "@/components/YesterdayReport";
 import Backlog from "@/components/Backlog";
 import Timer from "@/components/Timer";
+import FastTrack from "@/components/FastTrack";
 import DuelArena from "@/components/DuelArena";
 import WallOfShame from "@/components/WallOfShame";
 import { waShareText } from "@/lib/roast";
@@ -227,6 +228,34 @@ export default function Home() {
     );
   };
 
+  const advanceDone = async (advanceTopic) => {
+    try {
+      playChime();
+      const currentAdv = d.adv || 0;
+      await updateDoc(ref, {
+        [`topics.${advanceTopic.id}`]: true,
+        [`days.${today}.adv`]: currentAdv + 1,
+      });
+    } catch (e) {
+      console.error("Advance topic error:", e);
+    }
+  };
+
+  const advanceUndo = async (advanceTopic) => {
+    try {
+      const currentAdv = d.adv || 0;
+      await updateDoc(ref, {
+        [`topics.${advanceTopic.id}`]: deleteField(),
+        [`days.${today}.adv`]: Math.max(0, currentAdv - 1),
+      });
+    } catch (e) {
+      console.error("Advance undo error:", e);
+    }
+  };
+
+  const isTodayComplete = !!(d.c && d.q && d.g && d.r) || me.today >= 30;
+  const isTodayCoveredInAdvance = !!(ts && me.topics?.[ts.id] && !d.c);
+
   const nextPill = () => {
     setPillIdx((prev) => (prev + 1) % EMERGENCY_PILLS.length);
   };
@@ -302,6 +331,19 @@ export default function Home() {
           <span className="chip ok">🔥 {me.streak}d streak</span>
           <span className="chip">⭐ {me.score} pts</span>
           <span className="chip">📚 {me.pct}% syllabus</span>
+          {me.daysAhead > 0 && (
+            <span
+              className="chip"
+              style={{
+                background: "rgba(56, 189, 248, 0.15)",
+                borderColor: "rgba(56, 189, 248, 0.4)",
+                color: "var(--b)",
+                fontWeight: 700,
+              }}
+            >
+              ⚡ +{me.daysAhead}d buffer ({me.bufferHours}h)
+            </span>
+          )}
         </div>
       </section>
 
@@ -385,6 +427,22 @@ export default function Home() {
               <Ring value={me.today} max={40} label={me.today} sub="/40 pts" />
             </div>
 
+            {isTodayCoveredInAdvance && (
+              <div
+                style={{
+                  background: "rgba(56, 189, 248, 0.1)",
+                  border: "1px solid var(--b)",
+                  borderRadius: 12,
+                  padding: "8px 14px",
+                  margin: "12px 0",
+                }}
+              >
+                <small style={{ color: "var(--b)", fontWeight: 700 }}>
+                  ⚡ Ee topic munnitte divasam advance aayi theerthathaanu! Buffer Day active aanu — streak & score 100% safe aanu.
+                </small>
+              </div>
+            )}
+
             <div className="tasks">
               {TASKS.map(([k, icon, title, time, p, desc, fun]) => (
                 <TaskCard
@@ -394,7 +452,7 @@ export default function Home() {
                   time={time}
                   pts={p}
                   desc={desc}
-                  done={!!d[k]}
+                  done={!!d[k] || (k === "c" && !!me.topics?.[ts?.id])}
                   fun={fun}
                   onClick={() => tog(k)}
                 />
@@ -419,6 +477,15 @@ export default function Home() {
               💡 Complete all 4 tasks today for a <b>+10 bonus</b>! Zero activity days get a −15 penalty.
             </small>
           </div>
+
+          {/* Fast-Track / Overdrive Card (Ahead of Schedule & Buffer Banking) */}
+          <FastTrack
+            me={me}
+            today={today}
+            onAdvanceDone={advanceDone}
+            onAdvanceUndo={advanceUndo}
+            isTodayComplete={isTodayComplete}
+          />
 
           {/* Focus Timer */}
           <Timer onCompleteTask={tog} />
@@ -505,6 +572,11 @@ export default function Home() {
                     <div className="row mu" style={{ fontSize: "0.8rem" }}>
                       <span>
                         Syllabus {u.pct}% · Today +{u.today} · Pending {u.backlog.length}
+                        {u.daysAhead > 0 && (
+                          <span style={{ color: "var(--b)", marginLeft: 6, fontWeight: 700 }}>
+                            · ⚡ +{u.daysAhead}d buffer
+                          </span>
+                        )}
                       </span>
                       <span className="task-indicators">
                         <span className={uTodayTasks.c ? "pos" : "mu"}>{uTodayTasks.c ? "🧠✓" : "🧠✕"}</span>
