@@ -2,6 +2,7 @@ import "./globals.css";
 import Providers from "@/components/Providers";
 
 export const metadata = {
+  metadataBase: new URL("https://padikkeda.vercel.app"),
   title: "പഠിക്കെടാ 🔥 GATE 2027 Roast Battle",
   description: "Study. Compete. Get roasted. The 132-day battle arena for GATE CSE 2027 aspirants.",
   icons: {

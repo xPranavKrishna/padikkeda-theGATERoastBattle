@@ -1,6 +1,8 @@
 # പഠിക്കെടാ 🔥 Padikkeda
 ### The GATE CSE 2027 Roast Battle (made by a lazy man, for lazy men)
 
+🌐 **Live Website:** [https://padikkeda.vercel.app/](https://padikkeda.vercel.app/)
+
 > "Naale padikkaam." — Every GATE aspirant, 400 days in a row.
 
 Hi. I am lazy. My friend is lazy. We both want to crack GATE 2027.  
@@ -151,24 +153,21 @@ Open **http://localhost:3000**. Sign up, click the verify link in your email, th
 
 ---
 
-## 🌍 Put it online (so your friend can join)
+## 🌍 Live Website & Deployment
 
-Deploy on Vercel (free):
+The battle arena is live at:  
+👉 **[https://padikkeda.vercel.app/](https://padikkeda.vercel.app/)**
 
+### Deploy / Update on Vercel:
 1. **Push to GitHub:**
    ```bash
-   git init
    git add .
-   git commit -m "padikkeda"
-   git branch -M main
-   git remote add origin https://github.com/YOURNAME/padikkeda.git
-   git push -u origin main
+   git commit -m "update padikkeda"
+   git push origin main
    ```
-2. Go to https://vercel.com, sign in with GitHub, and import the repo.
-3. Add the 4 `NEXT_PUBLIC_FB_...` environment variables in Vercel settings.
-4. Click **Deploy**.
-5. ⚠️ **Critical:** In Firebase console → Authentication → **Settings → Authorized domains → Add domain** → add your `something.vercel.app`.
-6. Send the link to your friend(s). The war begins! ⚔️
+2. Vercel automatically redeploys from the `main` branch.
+3. ⚠️ **Critical:** In Firebase console → Authentication → **Settings → Authorized domains → Add domain** → ensure **`padikkeda.vercel.app`** is added so email verification and login work properly!
+4. Send the link to your friend(s). The war begins! ⚔️
 
 ---
 
