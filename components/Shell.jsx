@@ -24,9 +24,20 @@ export default function Shell({ children }) {
   const path = usePathname();
   const r = useRouter();
   const main = useRef();
+  const navRef = useRef();
   const [toast, setToast] = useState("");
   const [checkingVerify, setCheckingVerify] = useState(false);
   const [resendStatus, setResendStatus] = useState("");
+
+  // Center active nav link into view on mobile swipeable ribbon
+  useEffect(() => {
+    if (navRef.current) {
+      const activeEl = navRef.current.querySelector(".nav-link.on");
+      if (activeEl) {
+        activeEl.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      }
+    }
+  }, [path]);
 
   const verified = !!user?.emailVerified;
   const ready = users.length > 0;
@@ -69,27 +80,31 @@ export default function Shell({ children }) {
       <Bg3D />
 
       {user && verified && (
-        <nav className="nav">
-          <Link href="/" className="logo">
-            <span className="logo-flame">🔥</span>
-            <span>പഠിക്കെടാ</span>
-          </Link>
-
-          {NAV.map(([h, t]) => (
-            <Link key={h} href={h} className={path === h ? "on" : ""}>
-              {t}
+        <header className="nav-shell">
+          <div className="nav-top">
+            <Link href="/" className="logo">
+              <span className="logo-flame">🔥</span>
+              <span>പഠിക്കെടാ</span>
             </Link>
-          ))}
 
-          {pos >= 0 && (
-            <div className="chips" style={{ margin: 0, marginLeft: "auto" }}>
-              <span className="chip navchip" title="Active Streak & Daily Score">
-                🔥 {rank[pos].streak}d · ⭐ {rank[pos].today} pts
-                {rank[pos].backlog.length ? ` · ⏳ ${rank[pos].backlog.length}` : ""}
-              </span>
-            </div>
-          )}
-        </nav>
+            {pos >= 0 && (
+              <div className="chips" style={{ margin: 0 }}>
+                <span className="chip navchip" title="Active Streak & Daily Score">
+                  🔥 {rank[pos].streak}d · ⭐ {rank[pos].today} pts
+                  {rank[pos].backlog.length ? ` · ⏳ ${rank[pos].backlog.length}` : ""}
+                </span>
+              </div>
+            )}
+          </div>
+
+          <nav ref={navRef} className="nav-links" aria-label="Main Navigation">
+            {NAV.map(([h, t]) => (
+              <Link key={h} href={h} className={`nav-link ${path === h ? "on" : ""}`}>
+                {t}
+              </Link>
+            ))}
+          </nav>
+        </header>
       )}
 
       <main ref={main} className="wrap">

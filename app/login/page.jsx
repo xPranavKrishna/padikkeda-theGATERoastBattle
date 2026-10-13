@@ -61,7 +61,7 @@ export default function Login() {
   }
 
   return (
-    <div style={{ maxWidth: 440, margin: "7vh auto 12vh", padding: "0 16px" }}>
+    <div className="auth-wrap">
       {/* Brand Header - Beginner Friendly & Clean */}
       <div style={{ textAlign: "center", marginBottom: 22 }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
@@ -78,7 +78,7 @@ export default function Login() {
       </div>
 
       {/* Main Card */}
-      <div className="card" style={{ padding: 28, borderRadius: 24 }}>
+      <div className="card auth-card">
         {/* Simple Tab Switcher */}
         <div
           style={{
